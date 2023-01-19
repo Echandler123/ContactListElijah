@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * A class that stores subclasses of Person as a contact list.
  * The user is presented with a menu of options and may add, sort,
@@ -12,8 +14,12 @@
 public class ContactList
 {
     // TODO: Create your array contacts
-
+    ArrayList<Person> contacts = new ArrayList<Person>();
     // TODO: Write a Constructor
+    Public ContactList()
+    {
+
+    }
 
     public void printMenuOptions() {
         System.out.println("Menu: ");
