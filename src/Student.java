@@ -7,11 +7,11 @@
  * @version: 2022-2023
  */
 
-public class Student {
+public class Student extends Person {
     private int grade;
-    public Student(String firstName, String lastName, int PhoneNumber, int grade)
+    public Student(String firstName, String lastName, String phoneNumber, int grade)
     {
-        super(firstName,lastName, PhoneNumber);
+        super(firstName, lastName, phoneNumber);
         this.grade = grade;
     }
     public int getGrade() {

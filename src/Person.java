@@ -11,7 +11,7 @@ public class Person {
     String firstName;
     String lastName;
     String phoneNumber;
-    public person(String firstName, String lastName, int PhoneNumber)
+    public Person(String firstName, String lastName, String phoneNumber)
     {
         this.firstName  = firstName;
         this.lastName =  lastName;

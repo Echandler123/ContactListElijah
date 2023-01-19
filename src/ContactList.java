@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * A class that stores subclasses of Person as a contact list.
@@ -14,11 +15,11 @@ import java.util.ArrayList;
 public class ContactList
 {
     // TODO: Create your array contacts
-    ArrayList<Person> contacts = new ArrayList<Person>();
+    private ArrayList<Person> contacts;
     // TODO: Write a Constructor
     Public ContactList()
     {
-
+        contacts = new ArrayList<Person>();
     }
 
     public void printMenuOptions() {
@@ -40,6 +41,38 @@ public class ContactList
      */
     public void addContact() {
         // TODO: Complete the addContact method
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please select the type of contact to add:");
+        int choice = sc.nextInt();
+        if (choice == 1)
+        {
+            System.out.println("Please fill in the following information.");
+            System.out.println("First Name:");
+            String firstName= sc.nextLine();
+            System.out.println("Last Name:");
+            String lastName = sc.nextLine();;
+            System.out.println("Grade:");
+            int grade = sc.nextInt();;
+            System.out.println("Phone Number:");
+            String phoneNumber = sc.nextLine();;
+            Student s = new Student(firstName,lastName,phoneNumber,grade);
+            contacts.add(s);
+        }
+        else
+        {
+            System.out.println("Please fill in the following information.");
+            System.out.println("First Name:");
+            String firstName= sc.nextLine();
+            System.out.println("Last Name:");
+            String lastName = sc.nextLine();;
+            System.out.println("Grade:");
+            int grade = sc.nextInt();;
+            System.out.println("Phone Number:");
+            String phoneNumber = sc.nextLine();;
+            Student s = new Student(firstName,lastName,phoneNumber,grade);
+            contacts.add(s);
+        }
+
     }
 
     /**
