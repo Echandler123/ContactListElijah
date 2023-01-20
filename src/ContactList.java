@@ -17,7 +17,7 @@ public class ContactList
     // TODO: Create your array contacts
     private ArrayList<Person> contacts;
     // TODO: Write a Constructor
-    Public ContactList()
+    public ContactList()
     {
         contacts = new ArrayList<Person>();
     }
@@ -44,7 +44,7 @@ public class ContactList
         Scanner sc = new Scanner(System.in);
         System.out.println("Please select the type of contact to add:");
         int choice = sc.nextInt();
-        if (choice == 1)
+        if(choice == 1)
         {
             System.out.println("Please fill in the following information.");
             System.out.println("First Name:");
@@ -62,17 +62,16 @@ public class ContactList
         {
             System.out.println("Please fill in the following information.");
             System.out.println("First Name:");
-            String firstName= sc.nextLine();
+            String firstName = sc.nextLine();
             System.out.println("Last Name:");
             String lastName = sc.nextLine();;
-            System.out.println("Grade:");
-            int grade = sc.nextInt();;
+            System.out.println("subject:");
+            String subject = sc.nextLine();;
             System.out.println("Phone Number:");
             String phoneNumber = sc.nextLine();;
-            Student s = new Student(firstName,lastName,phoneNumber,grade);
-            contacts.add(s);
+            Teacher t = new Teacher(firstName,lastName,phoneNumber, subject);
+            contacts.add(t);
         }
-
     }
 
     /**
@@ -80,6 +79,10 @@ public class ContactList
      */
     public void printContacts() {
         // TODO: Complete the printContacts method
+        for(int i =0; i < contacts.size(); i++)
+        {
+            System.out.println(contacts.get(i));
+        }
     }
 
     /**
@@ -89,19 +92,95 @@ public class ContactList
      */
     public void sort(int sortBy) {
         // TODO: Complete the sort method
-    }
+        if(sortBy == 0)//first name
+        {
+            int n = contacts.size();
+            for(int pass = 1; pass < n; pass++) {
+                for(int comp = 0; comp < n - pass; comp++){
+                    if (contacts.get(comp).getFirstName().compareTo(contacts.get(comp + 1).getFirstName()) > 0)
+                        contacts.add(comp,contacts.get(comp + 1));
+                    contacts.remove(comp + 2);
+                }
+            }
+        }
+        else if(sortBy == 1) //last name
+        {
+            int n = contacts.size();
+            for(int pass = 1; pass < n; pass++) {
+                for(int comp = 0; comp < n - pass; comp++){
+                    if (contacts.get(comp).getLastName().compareTo(contacts.get(comp + 1).getLastName()) > 0)
+                        contacts.add(comp,contacts.get(comp + 1));
+                    contacts.remove(comp + 2);
+                }
+            }
+        }
+        else if(sortBy == 2)//phonenumber
+        {
+            int n = contacts.size();
+            for(int pass = 1; pass < n; pass++) {
+                for(int comp = 0; comp < n - pass; comp++){
+                    if (contacts.get(comp).getPhoneNumber().compareTo(contacts.get(comp + 1).getPhoneNumber()) > 0)
+                        contacts.add(comp,contacts.get(comp + 1));
+                        contacts.remove(comp + 2);
+                    }
+                }
+            }
+
+        }
+
 
     // TODO: Write searchByFirstName
+    public Person searchByFirstName(String firstName)
+    {
+         for(int i = 0; i < contacts.size(); i++)
+         {
+             if(firstName.equals(contacts.get(i).getFirstName()))
+             {
+                 return contacts.get(i);
+             }
+         }
+         return null;
+    }
+
 
     // TODO: Write searchByLastName
+    public Person searchByLastName(String lastName)
+    {
+        for(int i = 0; i < contacts.size(); i++)
+        {
+            if(lastName.equals(contacts.get(i).getLastName()))
+            {
+                return contacts.get(i);
+            }
+        }
+        return null;
+    }
 
     // TODO: Write searchByPhoneNumber
+    public Person searchByPhoneNumber(String phoneNumber)
+    {
+        for(int i = 0; i < contacts.size(); i++)
+        {
+            if(phoneNumber.equals(contacts.get(i).getPhoneNumber()))
+            {
+                return contacts.get(i);
+            }
+        }
+        return null;
+    }
 
     /**
      * Lists just the Student objects in the Contact List
      */
     public void listStudents() {
         // TODO: Complete the listStudents method
+        for(int i =0; i < contacts.size(); i++)
+        {
+            if (contacts.get(i)instanceof student == true)
+            {
+                System.out.println(contacts.get(i));
+            }
+        }
     }
 
     /**
