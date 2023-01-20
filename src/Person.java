@@ -1,3 +1,4 @@
+//Elijah Chandler
 /**
  * A class that represents a Person
  *
@@ -6,11 +7,13 @@
  * @author: Ms. Namasivayam & Mr. Blick
  * @version: 2022-2023
  */
-
-public class Person {
+public class Person
+{
     String firstName;
     String lastName;
     String phoneNumber;
+    /* Person constructor that takes in a name last name and phone number
+     */
     public Person(String firstName, String lastName, String phoneNumber)
     {
         this.firstName  = firstName;
@@ -18,21 +21,22 @@ public class Person {
         this.phoneNumber = phoneNumber;
     }
     // TODO: Complete the Person class
-
-    public String getFirstName() {
+    public String getFirstName()
+    {
         return firstName;
     }
-
-    public String getLastName() {
+    public String getLastName()
+    {
         return lastName;
     }
-
-    public String getPhoneNumber() {
+    public String getPhoneNumber()
+    {
         return phoneNumber;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return firstName + lastName + " - " + phoneNumber;
     }
 }
